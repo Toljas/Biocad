@@ -1,0 +1,8 @@
+Sub split_space_in_start()
+
+Sheets("sheet_name").Activate
+For Each b In Range("F2:F1000")
+    b.Value = LTrim(b.Value)
+Next b
+
+End Sub
