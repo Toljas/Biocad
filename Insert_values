@@ -1,0 +1,13 @@
+Sub insert_values()
+Sheets("sheet_name").Activate
+Dim i As Integer, strVar As String
+strVar = Cells(7, 106)
+For i = 8 To 4778
+    If (Cells(i, 106).Value = "") Then
+        Cells(i, 106).Value = strVar
+    Else
+        strVar = Cells(i, 106)
+    End If
+Next i
+
+End Sub
