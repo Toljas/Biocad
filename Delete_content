@@ -1,0 +1,19 @@
+Sub delete_content()
+Sheets("sheet_name").Activate
+Dim i As Integer, strVar As String
+
+strVar = Cells(1, 3)
+
+For i = 2 To 1000
+    If (Cells(i, 3) = strVar) Then
+        Cells(i, 3).ClearContents
+        Cells(i, 1).ClearContents
+        Cells(i, 2).ClearContents
+        Cells(i, 4).ClearContents
+        Cells(i, 5).ClearContents
+    Else
+        strVar = Cells(i, 3)
+    End If
+Next
+
+End Sub
