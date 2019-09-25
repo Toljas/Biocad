@@ -1,0 +1,26 @@
+Sub insert_values_for_blocks()
+Sheets("TDSheet3").Activate
+Dim i As Integer, strVar As String, strVal As String
+strVar = Cells(3, 1)
+strVal = Cells(3, 14)
+
+For i = 4 To 22916
+    If Cells(i, 1).Value = strVar Then
+        If strVal <> "" Then
+            If Cells(i, 14).Value = "" Then
+                Cells(i, 14).Value = strVal
+            Else
+                strVal = Cells(i, 14).Value
+                strVar = Cells(i, 1).Value
+            End If
+        Else
+            strVal = Cells(i, 14).Value
+            strVar = Cells(i, 1).Value
+        End If
+    Else
+        strVal = Cells(i, 14).Value
+        strVar = Cells(i, 1).Value
+    End If
+Next i
+
+End Sub
