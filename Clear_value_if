@@ -1,0 +1,15 @@
+Sub clear_value_if()
+Sheets("Company").Activate
+
+Dim i As Integer, j As Integer
+
+
+For i = 2 To 2579
+    If Cells(i, 2).Value = 1 Then
+        Cells(i, 7).Value = Cells(i, 1).Value
+        Cells(i, 1).ClearContents
+        Cells(i, 2).ClearContents
+    End If
+Next i
+
+End Sub
