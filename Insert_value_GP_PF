@@ -1,0 +1,38 @@
+Sub insert_value_GP_PF()
+Sheets("TDSheet2").Activate
+
+Dim i As Integer, j As Integer
+Dim sKod As String, sNom As String, sHar As String
+
+sKod = Cells(2, 1).Value
+sNom = Cells(2, 10).Value
+sHar = Cells(2, 12).Value ' 26 - X
+
+For i = 3 To 22916
+    If sKod = Cells(i, 1).Value Then
+    Else
+        sKod = Cells(i, 1).Value
+        sNom = Cells(i, 10).Value
+        sHar = Cells(i, 12).Value
+        If sHar = "" And sNom = "" Then
+            Range(Cells(i, 1), Cells(i, 59)).Interior.Color = vbRed 'xlNone
+        ElseIf sHar = "" Then
+            For Each sel1 In Range("X3:X22916")
+                If sel1.Value = sNom Then
+                    Cells(i, 8).Value = "п/ф"
+                    Exit For
+                End If
+            Next sel1
+        Else
+            For Each sel2 In Range("AA3:AA22916")
+                If sel2.Value = sHar Then
+                    Cells(i, 8).Value = "п/ф"
+                    Exit For
+                End If
+            Next sel2
+        End If
+        If Cells(i, 8).Value = "" And Cells(i, 1).Interior.Color <> vbRed Then Cells(i, 8).Value = "ГП"
+    End If
+Next i
+
+End Sub
