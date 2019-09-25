@@ -1,0 +1,18 @@
+Sub search_same_value()
+Sheets("Company").Activate
+
+Dim i As Integer, j As Integer
+
+For j = 2 To 775
+    For i = 2 To 2579
+        If Cells(j, 5).Value = Cells(i, 1) Then
+            Cells(i, 2).Value = 1
+        ElseIf InStr(Cells(i, 1).Value, Cells(j, 5).Value) <> 0 Then
+            Cells(j, 6).Value = "?"
+        End If
+    Next i
+Next j
+
+
+
+End Sub
