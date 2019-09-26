@@ -1,19 +1,19 @@
-Sub insert_values_for_columns() ' 30 - AB, 33 - AE, 34 - AF
+Sub insert_values_for_columns() ' 28 - AB, 31 - AE, 32 - AF
 Sheets("TDSheet4").Activate
 Dim i As Integer
 
 For i = 3 To 22916
-    If Cells(i, 34).Value = "" Then
-        If Cells(i, 33).Value = "" Then
-            If Cells(i, 30).Value = "" Then
+    If Cells(i, 32).Value = "" Then
+        If Cells(i, 31).Value = "" Then
+            If Cells(i, 28).Value = "" Then
             Else
-                Cells(i, 34).Value = Cells(i, 30).Value
+                Cells(i, 32).Value = Cells(i, 28).Value
             End If
         Else
-            If Cells(i, 30).Value = "" Then
-                Cells(i, 34).Value = Cells(i, 33).Value
+            If Cells(i, 28).Value = "" Then
+                Cells(i, 32).Value = Cells(i, 31).Value
             Else
-                Cells(i, 34).Value = Cells(i, 30).Value
+                Cells(i, 32).Value = Cells(i, 28).Value
             End If
         End If
     End If
