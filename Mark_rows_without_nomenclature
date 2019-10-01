@@ -1,0 +1,26 @@
+Sub mark_rows_without_nomenclature() '61 колонка - BI
+Sheets("All").Activate
+Dim j As Integer, sKod As String, sNom As String, sHar As String
+
+sKod = Cells(3, 1).Value
+sNom = Cells(3, 10).Value
+sHar = Cells(3, 12).Value
+j = 3
+Do While Cells(j, 3).Value <> ""
+    If sNom = "" And sHar = "" Then
+        Do While Cells(j, 1).Value = sKod
+            Cells(j, 61).Value = 1
+            j = j + 1
+        Loop
+    Else
+        Do While Cells(j, 1).Value = sKod
+            Cells(j, 61).Value = 0
+            j = j + 1
+        Loop
+    End If
+    sKod = Cells(j, 1).Value
+    sNom = Cells(j, 10).Value
+    sHar = Cells(j, 12).Value
+Loop
+
+End Sub
