@@ -1,0 +1,30 @@
+Sub count_rows_in_BOM()
+Sheets("BOM").Activate
+Dim i As Integer, iCount1 As Integer, iCount2 As Integer
+Dim sVar As String
+i = 3
+Do While Cells(i, 7) <> ""
+    iCount1 = 0
+    iCount2 = 0
+    sVar = Cells(i, 5).Value
+    
+    For j = 3 To 22917
+    If sVar = Cells(j, 11) Then iCount1 = iCount1 + 1
+    Next j
+    Cells(i, 8).Value = iCount1
+    
+    For k = 3 To 17141
+    If sVar = Cells(k, 11) Then iCount2 = iCount2 + 1
+    Next k
+    Cells(i, 9).Value = iCount2
+    
+    If Cells(i, 8).Value = Cells(i, 9).Value Then
+        Cells(i, 10).Value = 1
+    Else
+        Cells(i, 10).Value = 0
+    End If
+    
+i = i + 1
+
+Loop
+End Sub
