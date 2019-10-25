@@ -1,0 +1,19 @@
+Sub stretching_podrazdelenie()
+Sheets("All").Activate
+
+Dim sKod As String, sVar As String
+sKod = Cells(2, 1).Value
+sVar = Cells(2, 55).Value
+
+i = 3
+Do While Cells(i, 3) <> ""
+    If Cells(i, 1).Value = sKod Then
+        Cells(i, 55).Value = sVar
+    Else
+        sKod = Cells(i, 1).Value
+        sVar = Cells(i, 55).Value
+    End If
+i = i + 1
+
+Loop
+End Sub
