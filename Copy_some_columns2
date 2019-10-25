@@ -1,0 +1,34 @@
+Sub copy_some_columns2()
+Sheets("All_change").Activate
+Dim i As Integer
+Dim varGuid As String
+
+i = 3
+
+Do While Cells(i, 3).Value <> ""
+    For j = 3 To 22917
+        If Cells(j, 67).Value = Cells(i, 3).Value Then
+            varGuid = Cells(i, 3).Value
+            k = i
+            Do While Cells(k, 3).Value = varGuid
+                If Cells(j, 73).Value <> "" And Cells(j, 73).Value = Cells(k, 26).Value Then
+                    Cells(k, 57).Value = Cells(j, 74).Value
+                    Cells(k, 58).Value = Cells(j, 75).Value
+                    Cells(j, 76).Value = 0
+                    k = k + 1
+                ElseIf Cells(j, 73).Value = "" And Cells(j, 70).Value = Cells(k, 23).Value Then
+                    Cells(k, 57).Value = Cells(j, 74).Value
+                    Cells(k, 58).Value = Cells(j, 75).Value
+                    Cells(j, 76).Value = 0
+                    k = k + 1
+                Else
+                    Cells(j, 76).Value = 1
+                    k = k + 1
+                End If
+            Loop
+            i = k
+        End If
+    Next j
+    i = i + 1
+Loop
+End Sub
