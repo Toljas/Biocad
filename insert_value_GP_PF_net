@@ -1,0 +1,38 @@
+Sub insert_value_GP_PF_net()
+Sheets("All_change").Activate
+
+Dim i As Integer, j As Integer
+Dim sKod As String, sNom As String, sHar As String
+
+sKod = Cells(2, 1).Value
+sNom = Cells(2, 9).Value
+sHar = Cells(2, 11).Value ' 26 - X
+
+For i = 3 To 22916
+    If sKod = Cells(i, 1).Value Then
+    Else
+        sKod = Cells(i, 1).Value
+        sNom = Cells(i, 9).Value
+        sHar = Cells(i, 11).Value
+        If sHar = "" And sNom = "" Then
+            Cells(i, 56).Value = "нет"
+        ElseIf sHar = "" Then
+            For Each sel1 In Range("W3:W22916")
+                If sel1.Value = sNom Then
+                    Cells(i, 56).Value = "п/ф"
+                    Exit For
+                End If
+            Next sel1
+        Else
+            For Each sel2 In Range("Z3:Z22916")
+                If sel2.Value = sHar Then
+                    Cells(i, 56).Value = "п/ф"
+                    Exit For
+                End If
+            Next sel2
+        End If
+        If Cells(i, 56).Value = "" Then Cells(i, 56).Value = "ГП"
+    End If
+Next i
+
+End Sub
