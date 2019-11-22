@@ -1,0 +1,15 @@
+Sub numeration()
+Dim dict As New Scripting.Dictionary
+Sheets("УТЛФ 2.0 (2)").Activate
+i = 3
+Do While Cells(i, 76).Value <> ""
+    If dict.Exists(Cells(i, 76).Value) Then
+        dict.Item(Cells(i, 76).Value) = dict.Item(Cells(i, 76).Value) + 10
+    Else
+        dict.Add Cells(i, 76).Value, 10
+    End If
+Cells(i, 83).Value = dict.Item(Cells(i, 76).Value)
+i = i + 1
+Loop
+
+End Sub

@@ -1,0 +1,16 @@
+Sub add_new()
+Sheets("Объём").Activate
+Dim sKod As String, sVar As String
+sKod = Cells(2, 1).Value
+sVar = "new"
+
+i = 3
+Do While Cells(i, 3) <> ""
+    If Cells(i, 1).Value <> sKod Then
+        sKod = Cells(i, 1).Value
+        If Cells(i, 10).Value = "" Then Cells(i, 10).Value = sVar
+    End If
+i = i + 1
+
+Loop
+End Sub

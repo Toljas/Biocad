@@ -2,7 +2,7 @@ Sub Delete_Entire_Row_With2ConditionsRows()
 Dim i As Integer, j As Integer
 j = 0
 i = 2
-Sheets("ãóèäû_ïîëíûé (3)").Activate
+Sheets("sheet_name").Activate
 Do While (j < 600)
     If (Cells(i, 5) = "") And (Cells(i, 6) = "") Then
         Rows(i).EntireRow.delete

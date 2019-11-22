@@ -1,0 +1,27 @@
+Sub add_actuality()
+Sheets("All").Activate
+
+i = 3
+Do While Cells(i, 82).Value <> ""                               'columns with RS key,that we want to add actuality
+    j = 3
+    Do While Cells(j, 3).Value <> ""                            'guid our colomn with all RS, that we have to mark
+        If Cells(j, 1).Value = Cells(i, 82).Value Then          'look for equal in RS key
+            If Cells(j, 73).Value = "" Then                     'if cell with actual for this RS is empty
+                Cells(j, 72).Value = 1                          'add actuality - 1
+                Cells(j, 73).Value = 0                          'add second column with actuality - 0
+                Cells(j, 75).Value = 1                          'add third column with actuality - 1 (common)
+                Cells(i, 84).Value = 1                          'set marker that actuality successefully added
+            Else                                                'if cell with actual for this RS is not empty
+                If Cells(j, 73).Value = "0" Then                'if actuality is equal 0
+                    Cells(i, 84).Interior.Color = vbRed         'red fill marker's cell
+                Else                                            'if actuality is equal 1
+                    Cells(i, 83).Value = Cells(i, 82).Value     'copy value of RS key in neighboring cell
+                End If
+            End If
+        End If
+        j = j + 1
+    Loop
+i = i + 1
+Loop
+
+End Sub

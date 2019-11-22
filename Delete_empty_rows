@@ -1,0 +1,6 @@
+Sub delete_empty_rows()
+
+Sheets("sheet_name").Activate
+Range("F2:F4773").SpecialCells(xlCellTypeBlanks).EntireRow.delete
+
+End Sub

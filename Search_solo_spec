@@ -1,0 +1,16 @@
+Sub search_solo_spec() ' 1 - одна, 11 - (S),25 - (N), 75 - ответ
+Sheets("All").Activate
+Dim i As Integer, sVar As String
+i = 3
+'And (InStr(Cells(i, 11).Value, "(S)")) And (InStr(Cells(i, 25).Value, "(N)")) Then
+Do While Cells(i, 3).Value <> ""
+    If (Cells(i, 1).Value <> Cells(i + 1, 1).Value) And (Cells(i, 1).Value <> Cells(i - 1, 1).Value) _
+        And (Cells(i, 11).Value = "S") And (Cells(i, 25).Value = "N") Then
+        Cells(i, 75).Value = 1
+    'Else
+        'Cells(i, 75).Value = 0
+    End If
+    i = i + 1
+Loop
+
+End Sub

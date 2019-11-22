@@ -1,0 +1,11 @@
+Sub replace_percent_and_2space()
+Sheets("sheet_name").Activate
+Dim i As Integer
+
+For i = 2 To 600
+        Cells(i, 6).Value = Replace(Cells(i, 6).Value, " (100%)", "")
+        Cells(i, 6).Value = Replace(Cells(i, 6).Value, " (80%)", "")
+        Cells(i, 6).Value = Replace(Cells(i, 6).Value, "  ", " ")
+Next i
+
+End Sub

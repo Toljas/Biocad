@@ -1,0 +1,21 @@
+Sub copy_some_columns()
+Sheets("All_change").Activate
+Dim i As Integer
+
+i = 3
+
+Do While Cells(i, 3) <> ""
+    For j = 3 To 22917
+        If Cells(j, 65).Value = Cells(i, 1).Value Then
+            Cells(i, 56).Value = Cells(j, 66).Value
+            Cells(i, 59).Value = Cells(j, 69).Value
+            Cells(i, 60).Value = Cells(j, 70).Value
+            Cells(i, 61).Value = Cells(j, 71).Value
+            Cells(i, 62).Value = Cells(j, 72).Value
+            Cells(i, 63).Value = Cells(j, 73).Value
+            i = i + 1
+        End If
+    Next j
+    i = i + 1
+Loop
+End Sub

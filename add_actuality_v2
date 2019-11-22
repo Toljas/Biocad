@@ -1,0 +1,20 @@
+Sub add_actuality()
+Sheets("All_change").Activate
+
+j = 3
+Do While Cells(j, 67).Value <> ""                               'columns with RS key,that we want to add actuality
+    i = 3
+    Do While Cells(i, 3).Value <> ""                            'guid our colomn with all RS, that we have to mark
+        If Cells(j, 67).Value = Cells(i, 3).Value Then          'look for equal in RS key
+                Cells(i, 60).Value = Cells(j, 68).Value                        
+                Cells(i, 61).Value = Cells(j, 69).Value                          
+                Cells(i, 62).Value = Cells(j, 70).Value
+                Cells(i, 63).Value = Cells(j, 71).Value                         
+                Cells(j, 66).Value = 1                          'set marker that actuality successefully added
+        End If
+        i = i + 1
+    Loop
+j = j + 1
+Loop
+
+End Sub
