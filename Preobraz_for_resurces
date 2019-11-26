@@ -1,0 +1,27 @@
+Sub preobraz_for_resurces()
+Sheets("УТЛФ2.0 этапы").Activate
+Application.ScreenUpdating = 0
+Dim i As Integer, j As Integer, sVar As String
+j = 0
+i = 3
+Do While (j < 103)
+    If Cells(i, 6).Value = "" Then
+        Rows(i).EntireRow.Delete
+    Else
+        i = i + 1
+    End If
+    j = j + 1
+Loop
+
+sVar = Cells(2, 1).Value
+i = 3
+Do While Cells(i, 1).Value <> ""
+If sVar <> Cells(i, 1).Value Then
+sVar = Cells(i, 1).Value
+Rows(i).Resize(1).Insert
+i = i + 1
+End If
+i = i + 1
+Loop
+Application.ScreenUpdating = 1
+End Sub
