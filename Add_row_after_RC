@@ -1,0 +1,14 @@
+Sub add_row_after_RC()
+Sheets("Лист1").Activate
+Dim sVar As String
+sVar = Cells(2, 1).Value
+i = 3
+Do While Cells(i, 1).Value <> ""
+If sVar <> Cells(i, 1).Value Then
+sVar = Cells(i, 1).Value
+Rows(i).Resize(1).Insert
+i = i + 1
+End If
+i = i + 1
+Loop
+End Sub
