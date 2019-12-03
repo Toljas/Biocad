@@ -1,0 +1,7 @@
+Sub delete_rows_empty_last_to_first_row()
+Sheets("Оля выгрузка").Activate
+LastRow = Cells(Rows.Count, 1).End(xlUp).Row
+For i = LastRow To 2 Step -1
+    If Cells(i, 1).Value = "" Then Rows(i).EntireRow.Delete
+Next i
+End Sub
