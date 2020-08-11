@@ -1,0 +1,16 @@
+Sub correct()
+Dim var As String
+k = 0
+i = 5
+l = 7
+Do While Cells(i, l).Value <> ""
+var = Cells(i, l).Value
+Cells(i, l).Value = Trim(var)
+If InStr(var, "  ") <> 0 Then
+Cells(i, l).Interior.Color = vbRed
+k = k + 1
+End If
+i = i + 1
+Loop
+MsgBox ("k: " & k)
+End Sub
