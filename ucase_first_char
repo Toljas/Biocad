@@ -1,0 +1,15 @@
+Sub ucase_first_char()
+Dim var As String
+k = 0
+i = 5
+l = 5
+Sheets("Каталоги").Activate
+Do While Cells(i, l).Value <> ""
+var = Cells(i, l).Value
+If UCase(Left(var, 1)) <> Left(var, 1) Then
+Cells(i, l).Value = UCase(Left(var, 1)) & Right(var, Len(var) - 1)
+End If
+i = i + 1
+Loop
+
+End Sub
