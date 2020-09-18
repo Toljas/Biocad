@@ -1,0 +1,47 @@
+Sub adding_info()
+Dim dict_ru As New Scripting.Dictionary
+Dim dict_en As New Scripting.Dictionary
+Application.ScreenUpdating = 0
+Sheets("Каталоги").Activate
+
+i = 1381
+j = 5
+Do While Cells(i, j - 4).Value <> ""
+If Cells(i, j - 3).Value = "R - Русский" Then
+If Not dict_ru.Exists(Cells(i, j - 4).Value) Then
+dict_ru.Add Cells(i, j - 4).Value, 10
+If dict_ru(Cells(i, j - 4).Value) < 100 Then
+Cells(i, j).Value = "00" & dict_ru(Cells(i, j - 4).Value)
+Else
+Cells(i, j).Value = "0" & dict_ru(Cells(i, j - 4).Value)
+End If
+Else
+dict_ru(Cells(i, j - 4).Value) = dict_ru(Cells(i, j - 4).Value) + 10
+If dict_ru(Cells(i, j - 4).Value) < 100 Then
+Cells(i, j).Value = "00" & dict_ru(Cells(i, j - 4).Value)
+Else
+Cells(i, j).Value = "0" & dict_ru(Cells(i, j - 4).Value)
+End If
+End If
+Else
+If Not dict_en.Exists(Cells(i, j - 4).Value) Then
+dict_en.Add Cells(i, j - 4).Value, 10
+If dict_en(Cells(i, j - 4).Value) < 100 Then
+Cells(i, j).Value = "00" & dict_en(Cells(i, j - 4).Value)
+Else
+Cells(i, j).Value = "0" & dict_en(Cells(i, j - 4).Value)
+End If
+Else
+dict_en(Cells(i, j - 4).Value) = dict_en(Cells(i, j - 4).Value) + 10
+If dict_en(Cells(i, j - 4).Value) < 100 Then
+Cells(i, j).Value = "00" & dict_en(Cells(i, j - 4).Value)
+Else
+Cells(i, j).Value = "0" & dict_en(Cells(i, j - 4).Value)
+End If
+End If
+End If
+i = i + 1
+Loop
+Application.ScreenUpdating = 1
+MsgBox ("Готово!")
+End Sub
