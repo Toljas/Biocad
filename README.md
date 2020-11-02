@@ -1,2 +1,2 @@
-# VBasic_Biocad
-Scripts for work VBA Excel
+# Biocad
+Scripts for work Biocad
